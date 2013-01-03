@@ -15,7 +15,7 @@ to_html(ReqData, State) ->
 
 get_picture() ->
   ZakPictures = ["zak"++integer_to_list(Index)++".jpg" || Index <- [1,2,3,4]],
-  Pictures = ["lavaflow.jpg"|ZakPictures],
-  Index = random:uniform(4),
+  % Pictures = ["lavaflow.jpg"|ZakPictures],
+  Index = random:uniform(length(ZakPictures)),
   Picture = lists:nth(Index, ZakPictures),
-  {Index, Picture}.
+  {Index, Picture}. % Sadly, on Heroku, this always serves up the first image
