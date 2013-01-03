@@ -16,6 +16,6 @@ to_html(ReqData, State) ->
 get_picture() ->
   ZakPictures = ["zak"++integer_to_list(Index)++".jpg" || Index <- [1,2,3,4]],
   Pictures = ["lavaflow.jpg"|ZakPictures],
-  Index = random:uniform(length(Pictures)),
-  Picture = lists:nth(Index, Pictures),
+  Index = random:uniform(length(ZakPictures)),
+  Picture = lists:nth(Index, ZakPictures),
   {Index, Picture}.
