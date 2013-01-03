@@ -36,7 +36,7 @@ file_path(Context, Name) ->
         "/" -> tl(Name);
         _ -> Name
     end,
-    filename:join([Context#context.root, "priv/www/images/", RelName]).
+    filename:join([Context#context.root, "images/", RelName]).
 
 file_exists(Context, Name) ->
     NamePath = file_path(Context, Name),
