@@ -10,10 +10,12 @@
 init([]) -> {ok, undefined}.
 
 to_html(ReqData, State) ->
-  {"<html><body><img src='/images/"++get_picture()++"' width='640px'/></body></html>", ReqData, State}.
+  {Index, Picture} = get_picture(),
+  {"<html><body><h1>"++integer_to_list(Index)++"</h1><img src='/images/"++Picture++"' width='640px'/></body></html>", ReqData, State}.
 
 get_picture() ->
-  ZakPictures = ["zak"++integer_to_list(Index)++".jpg" || Index <- [2,3,4]],
+  ZakPictures = ["zak"++integer_to_list(Index)++".jpg" || Index <- [1,2,3,4]],
   Pictures = ["lavaflow.jpg"|ZakPictures],
-  Index = random:uniform(length(ZakPictures)),
-  lists:nth(Index, ZakPictures).
+  Index = random:uniform(length(Pictures)),
+  Picture = lists:nth(Index, Pictures),
+  {Index, Picture}.
