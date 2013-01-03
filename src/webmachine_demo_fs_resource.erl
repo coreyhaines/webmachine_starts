@@ -36,7 +36,7 @@ file_path(Context, Name) ->
         "/" -> tl(Name);
         _ -> Name
     end,
-    filename:join([Context#context.root, RelName]).
+    filename:join([mywebdemo_sup:priv_dir(), "www/", Context#context.root, RelName]).
 
 file_exists(Context, Name) ->
     NamePath = file_path(Context, Name),

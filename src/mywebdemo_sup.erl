@@ -9,7 +9,7 @@
 -behaviour(supervisor).
 
 %% External exports
--export([start_link/0, upgrade/0]).
+-export([start_link/0, upgrade/0, priv_dir/0]).
 
 %% supervisor callbacks
 -export([init/1]).
@@ -63,3 +63,5 @@ priv_dir(Mod) ->
         PrivDir ->
             PrivDir
     end.
+priv_dir() ->
+  priv_dir(?MODULE).
